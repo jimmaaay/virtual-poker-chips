@@ -6,7 +6,13 @@ import { css } from 'glamor';
 // 545766
 
 interface ButtonProps {
+  /**
+   * A function that will be called when clicked
+   */
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  /**
+   * The colour theme to be applied to the button
+   */
   theme?: 'primary' | 'delete';
 }
 

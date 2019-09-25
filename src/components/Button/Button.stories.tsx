@@ -16,14 +16,14 @@ const rules = css({
 
 
 
-export const text = () => (
+export const colours = () => (
   <div { ...rules } >
-    <Button onClick={action('clicked')}>Primary</Button>
+    <Button onClick={action('clicked')}>primary</Button>
     <Button
       theme="delete"
       onClick={action('clicked')}
     >
-      Delete
+      delete
     </Button>
   </div>
 )
