@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "glamor": "^2.20.40",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.2",
@@ -12,7 +13,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,7 +33,16 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-info": "^5.2.1",
+    "@storybook/addon-links": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/react": "^5.2.1",
     "@types/react": "^16.9.3",
-    "@types/react-dom": "^16.9.1"
+    "@types/react-dom": "^16.9.1",
+    "@types/storybook__addon-info": "^4.1.2",
+    "@types/storybook__react": "^4.0.2",
+    "awesome-typescript-loader": "^5.2.1",
+    "react-docgen-typescript-loader": "^3.2.1"
   }
 }

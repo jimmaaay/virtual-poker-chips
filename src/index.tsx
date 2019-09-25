@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Button from './components/Button/Button';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <h1>Hello world</h1>,
+  <Button onClick={() => {}}>Hello world</Button>,
   document.getElementById('root'),
 );
 
