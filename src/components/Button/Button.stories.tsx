@@ -26,3 +26,7 @@ export const disabled = () => (
     <Button onClick={action('clicked')} disabled>disabled</Button>
   </Fragment>
 );
+
+export const loading = () => (
+  <Button onClick={action('clicked')} loading>loading</Button>
+)

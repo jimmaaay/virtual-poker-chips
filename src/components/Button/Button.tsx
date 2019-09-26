@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, MouseEventHandler } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 // FDB215
 // DF818F
@@ -18,6 +18,20 @@ interface ButtonProps {
    * If the button is disabled
    */
   disabled?: boolean;
+  /**
+   * If the button is loading
+   */
+  loading?: boolean;
+}
+
+interface StyledButtonProps {
+  loading: boolean;
+  theme: string;
+  disabled: boolean;
+}
+
+interface ButtonTextProps {
+  loading: boolean;
 }
 
 
@@ -32,7 +46,7 @@ const themes: any = {
   },
 };
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<StyledButtonProps>`
   font-size: 1.6rem;
   font-weight: normal;
   font-family: inherit;
@@ -42,13 +56,44 @@ const StyledButton = styled.button`
   border-radius: 5px;
   transition: background 0.2s ease-in-out;
   color: #fff;
+  position: relative;
   background: ${props => props.disabled ? '#dcdcdc' : themes[props.theme].background};
 
-  ${props => props.disabled ? 'pointer-events: none': ''};
+  ${props => props.disabled || props.loading ? 'pointer-events: none': ''};
 
   :hover {
     background: ${props => themes[props.theme].hoverBackground};
   }
+`;
+
+const ButtonText = styled.span<ButtonTextProps>`
+  visibility: ${props => props.loading ? 'hidden' : 'visible'};
+`;
+
+const spinnerAnimation = keyframes`
+  from {
+    transform: none
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+
+const ButtonLoader = styled.div`
+  --diameter: 3rem;
+  width: var(--diameter);
+  height: var(--diameter);
+  border: 0.5rem solid rgba(255, 255, 255, 0.2);
+  border-left: 0.5rem solid #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: calc(var(--diameter) / -2);
+  margin-top:  calc(var(--diameter) / -2);
+  border-radius: 50%;
+  animation: ${spinnerAnimation} 1s infinite linear;
 `;
 
 
@@ -58,6 +103,7 @@ const Button = (props: PropsWithChildren<ButtonProps>) => {
     theme = 'primary',
     onClick = false,
     disabled = false,
+    loading = false,
   } = props;
 
   const buttonProps: any = {};
@@ -66,13 +112,17 @@ const Button = (props: PropsWithChildren<ButtonProps>) => {
     buttonProps.onClick = onClick;
   }
 
+  const loader = loading ? <ButtonLoader /> : false;
+
   return (
     <StyledButton
       theme={theme}
       disabled={disabled}
+      loading={loading}
       { ...buttonProps }
     >
-      { props.children }
+      <ButtonText loading={loading}>{ props.children }</ButtonText>
+      { loader }
     </StyledButton>
   );
 };
