@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import GlobalStyles from './GlobalStyles';
-import Button from './components/Button/Button';
+import Welcome from './views/Welcome/Welcome';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <Fragment>
     <GlobalStyles />
-    <Button onClick={() => {}}>Hello world</Button>
+    <Welcome />
   </Fragment>,
   document.getElementById('root'),
 );
