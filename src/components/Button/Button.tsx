@@ -31,7 +31,7 @@ const themes: any = {
 const StyledButton = styled.button`
   font-size: 1.6rem;
   font-weight: normal;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: inherit;
   padding: 1rem 2rem;
   border: none;
   cursor: pointer;

@@ -6,6 +6,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   html {
     font-size: 62.5%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 `
 
@@ -14,21 +15,24 @@ const OuterDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+  
+  > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-const InnerDiv = styled.div`
   > * > * {
     margin: 0 1rem;
   }
 `;
 
+
 const StylesDecorator = storyFn => (
   <Fragment>
     <GlobalStyles />
     <OuterDiv>
-      <InnerDiv>
-        { storyFn() }
-      </InnerDiv>
+      { storyFn() }
     </OuterDiv>
   </Fragment>
 );
