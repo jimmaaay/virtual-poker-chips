@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
+import GlobalStyles from './GlobalStyles';
 import Button from './components/Button/Button';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Button onClick={() => {}}>Hello world</Button>,
+  <Fragment>
+    <GlobalStyles />
+    <Button onClick={() => {}}>Hello world</Button>
+  </Fragment>,
   document.getElementById('root'),
 );
 

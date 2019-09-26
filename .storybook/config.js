@@ -1,14 +1,8 @@
 import React, { Fragment } from 'react';
 import { configure, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import styled, { createGlobalStyle } from 'styled-components';
-
-const GlobalStyles = createGlobalStyle`
-  html {
-    font-size: 62.5%;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  }
-`
+import styled from 'styled-components';
+import GlobalStyles from '../src/GlobalStyles';
 
 const OuterDiv = styled.div`
   height: 100vh;
