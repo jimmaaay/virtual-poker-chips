@@ -9,7 +9,8 @@ interface PokerChipProps {
   /**
    * A function that will be called when the PokerChip is clicked
    */
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: any;
+  // onClick: (args: { chipValue: number, event: MouseEventHandler<HTMLButtonElement> }) => void;
 
   /**
    * Controls the chip transparency
@@ -84,7 +85,7 @@ const PokerChip = (props: PropsWithChildren<PokerChipProps>) => {
     <ChipButton
       transparent={transparent}
       chipColour={chipColour}
-      onClick={onClick}
+      onClick={(event) => {onClick({ event, chipValue })}}
       disabled={disabled}
     >
       <ChipSVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496.159 496.159">

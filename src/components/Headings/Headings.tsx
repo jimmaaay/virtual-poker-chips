@@ -8,6 +8,13 @@ import styled from 'styled-components';
 const sharedHeadingStyles = `
   line-height: 1.2;
   font-weight: 300;
+  margin: 0 0 2.5rem;
+
+  + h1,
+  + h2,
+  + h3 {
+    margin-top: -1rem;
+  }
 `;
 
 export const H1 = styled.h1`
@@ -20,7 +27,7 @@ export const H2 = styled.h2`
   font-size: 3.3rem;
 `
 
-export const h3 = styled.h3`
+export const H3 = styled.h3`
   ${sharedHeadingStyles}
   font-size: 2.8rem;
 `;
