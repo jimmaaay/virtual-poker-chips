@@ -14,6 +14,7 @@ interface PlayerTableProps {
 const StyledTable = styled.table`
   width: 100%;
   border-collapse: collapse;
+  margin: 0 0 2.5rem;
 `;
 
 const StyledTh = styled.th`
