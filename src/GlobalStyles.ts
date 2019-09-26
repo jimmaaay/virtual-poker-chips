@@ -11,6 +11,10 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
   }
 
+  body {
+    font-size: 1.6rem;
+  }
+
   p {
     margin: 0 0 2.5rem;
   }

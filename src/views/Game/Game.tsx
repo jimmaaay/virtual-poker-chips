@@ -1,10 +1,18 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
+import { H1 } from '../../components/Headings/Headings';
 
-const Game = (props: RouteComponentProps) => {
+interface GameProps {
+  /**
+   * Id of the poker room
+   */
+  id: string;
+}
+
+const Game = (props: RouteComponentProps<GameProps>) => {
   return (
     <section>
-      game
+      <H1>Room #{props.id}</H1>
     </section>
   );
 };

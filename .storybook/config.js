@@ -9,6 +9,8 @@ const OuterDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #333;
+  color: #fff;
   
   > * {
     display: flex;

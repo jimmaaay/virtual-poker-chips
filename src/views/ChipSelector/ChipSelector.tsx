@@ -3,7 +3,7 @@ import { RouteComponentProps, navigate } from '@reach/router';
 import styled from 'styled-components';
 import PokerChip, { chipColours } from '../../components/PokerChip/PokerChip';
 import Button from '../../components/Button/Button';
-import { H2, H3 } from '../../components/Headings/Headings';
+import { H1, H2 } from '../../components/Headings/Headings';
 
 const ChipSection = styled.div`
   display: grid;
@@ -49,8 +49,8 @@ const ChipSelector = (props: RouteComponentProps) => {
 
   return (
     <section>
-      <H2>Select chip denominations to play with</H2>
-      <H3>{selectedChips.length} chips selected</H3>
+      <H1>Select chip denominations to play with</H1>
+      <H2>{selectedChips.length} chips selected</H2>
       <ChipSection>
         { Object.keys(chipColours).map((chipValueText) => {
           const chipValue = parseInt(chipValueText)
