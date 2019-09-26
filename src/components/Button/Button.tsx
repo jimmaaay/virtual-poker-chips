@@ -14,6 +14,10 @@ interface ButtonProps {
    * The colour theme to be applied to the button
    */
   theme?: 'primary' | 'delete';
+  /**
+   * If the button is disabled
+   */
+  disabled?: boolean;
 }
 
 
@@ -38,7 +42,9 @@ const StyledButton = styled.button`
   border-radius: 5px;
   transition: background 0.2s ease-in-out;
   color: #fff;
-  background: ${props => themes[props.theme].background};
+  background: ${props => props.disabled ? '#dcdcdc' : themes[props.theme].background};
+
+  ${props => props.disabled ? 'pointer-events: none': ''};
 
   :hover {
     background: ${props => themes[props.theme].hoverBackground};
@@ -51,6 +57,7 @@ const Button = (props: PropsWithChildren<ButtonProps>) => {
   const {
     theme = 'primary',
     onClick = false,
+    disabled = false,
   } = props;
 
   const buttonProps: any = {};
@@ -62,6 +69,7 @@ const Button = (props: PropsWithChildren<ButtonProps>) => {
   return (
     <StyledButton
       theme={theme}
+      disabled={disabled}
       { ...buttonProps }
     >
       { props.children }

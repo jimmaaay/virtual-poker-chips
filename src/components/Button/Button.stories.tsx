@@ -18,4 +18,11 @@ export const colours = () => (
       delete
     </Button>
   </Fragment>
-)
+);
+
+export const disabled = () => (
+  <Fragment>
+    <Button onClick={action('clicked')}>not disabled</Button>
+    <Button onClick={action('clicked')} disabled>disabled</Button>
+  </Fragment>
+);
