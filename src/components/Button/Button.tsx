@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, MouseEventHandler } from 'react';
-import { css } from 'glamor';
+import styled from 'styled-components';
 
 // FDB215
 // DF818F
@@ -16,33 +16,35 @@ interface ButtonProps {
   theme?: 'primary' | 'delete';
 }
 
-const rules = css({
-  fontSize: '1.6rem',
-  fontWeight: 'normal',
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-  padding: '1rem 2rem',
-  border: 'none',
-  cursor: 'pointer',
-  borderRadius: '5px',
-  transition: 'background 0.2s ease-in-out',
-});
 
-const themes = {
+const themes: any = {
   primary: {
     background: 'hsl(41, 98%, 54%)',
-    color: '#fff',
-    ':hover': {
-      background: 'hsl(41, 98%, 46%)'
-    },
+    hoverBackground: 'hsl(41, 98%, 46%)'
   },
   delete: {
-    color: '#fff',
     background: 'hsl(351, 59%, 69%)',
-    ':hover': {
-      background: 'hsl(351, 59%, 60%)',
-    }
-  }
+    hoverBackground: 'hsl(351, 59%, 60%)',
+  },
 };
+
+const StyledButton = styled.button`
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.2s ease-in-out;
+  color: #fff;
+  background: ${props => themes[props.theme].background};
+
+  :hover {
+    background: ${props => themes[props.theme].hoverBackground};
+  }
+`;
+
 
 const Button = (props: PropsWithChildren<ButtonProps>) => {
 
@@ -57,15 +59,13 @@ const Button = (props: PropsWithChildren<ButtonProps>) => {
     buttonProps.onClick = onClick;
   }
 
-  const themeStyles = themes[theme];
-
   return (
-    <button
-      { ...css(rules, themeStyles) }
+    <StyledButton
+      theme={theme}
       { ...buttonProps }
     >
       { props.children }
-    </button>
+    </StyledButton>
   );
 };
 

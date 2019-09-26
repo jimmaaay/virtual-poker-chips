@@ -1,44 +1,32 @@
 import React, { PropsWithChildren, MouseEventHandler } from 'react';
-import { css } from 'glamor';
+import styled from 'styled-components';
 
 interface PokerChipProps {
   chipValue: 1 | 5 | 25 | 100 | 500;
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-const chipCSS = css({
-  fontSize: '2rem',
-  width: '8rem',
-  height: '8rem',
-  borderRadius: '50%',
-  background: 'var(--chipColour)',
-  border: 'none',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  position: 'relative',
+interface ChipButtonProps {
+  chipColour: string;
+}
 
-  '&::before': {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    width: '5rem',
-    height: '5rem',
-    borderRadius: '50%',
-    background: 'var(--chipColour)',
-    opacity: 0.4,
-  }
-});
+const ChipButton = styled.button<ChipButtonProps>`
+  --chipColour: ${props => props.chipColour}
 
-const innerChipCSS = css({
-  display: 'block',
-  position: 'relative',
-});
+  font-size: 2rem;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: var(--chipColour);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+`;
 
 const chipColours: any = {
-  1: {
-    '--chipColour': 'yellow',
-  },
+  1: 'yellow',
 };
 
 const PokerChip = (props: PropsWithChildren<PokerChipProps>) => {
@@ -46,14 +34,14 @@ const PokerChip = (props: PropsWithChildren<PokerChipProps>) => {
   const chipColour = chipColours[chipValue];
 
   return (
-    <button
-      { ...css(chipCSS, chipColour) }
+    <ChipButton
+      chipColour={chipColour}
       onClick={onClick}
     >
-      <span { ...innerChipCSS }>
+      <span>
         { props.children }
       </span>
-    </button>
+    </ChipButton>
   );
 };
 

@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
-import { css } from 'glamor';
 import Button from './Button';
 
 export default {
@@ -8,16 +7,9 @@ export default {
   component: Button,
 };
 
-const rules = css({
-  '> * ': {
-    margin: '0 1rem',
-  }
-});
-
-
 
 export const colours = () => (
-  <div { ...rules } >
+  <Fragment>
     <Button onClick={action('clicked')}>primary</Button>
     <Button
       theme="delete"
@@ -25,5 +17,5 @@ export const colours = () => (
     >
       delete
     </Button>
-  </div>
+  </Fragment>
 )
