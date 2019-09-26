@@ -16,9 +16,10 @@ const ChipSelector = (props: RouteComponentProps) => {
 
   const [state, setState] = useState({
     selectedChips: [] as number[],
+    loading: false,
   });
 
-  const { selectedChips } = state;
+  const { selectedChips, loading } = state;
 
   const toggleSelectedChip = (chipValue: number) => {
     let chips = [ ...selectedChips ];
@@ -36,6 +37,11 @@ const ChipSelector = (props: RouteComponentProps) => {
   };
 
   const continueClick = () => {
+    setState({
+      ...state,
+      loading: true,
+    });
+
     setTimeout(() => { // Dummy ajax request to setup the game
       navigate('/game/1');
     }, 1000);
@@ -61,6 +67,7 @@ const ChipSelector = (props: RouteComponentProps) => {
       </ChipSection>
       <Button
         disabled={selectedChips.length === 0}
+        loading={loading}
         onClick={continueClick}
       >
         Continue
