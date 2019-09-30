@@ -59,6 +59,8 @@ export const chipColours: any = {
   1000: '#dccc29',
 };
 
+export const chipValues = Object.keys(chipColours).map(val => parseInt(val));
+
 const ChipSVG = styled.svg`
   position: absolute;
   top: 0;

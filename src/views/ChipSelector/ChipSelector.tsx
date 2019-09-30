@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RouteComponentProps, navigate } from '@reach/router';
 import styled from 'styled-components';
-import PokerChip, { chipColours } from '../../components/PokerChip/PokerChip';
+import PokerChip, { chipValues } from '../../components/PokerChip/PokerChip';
 import Button from '../../components/Button/Button';
 import { H1, H2 } from '../../components/Headings/Headings';
 
@@ -52,8 +52,7 @@ const ChipSelector = (props: RouteComponentProps) => {
       <H1>Select chip denominations to play with</H1>
       <H2>{selectedChips.length} chips selected</H2>
       <ChipSection>
-        { Object.keys(chipColours).map((chipValueText) => {
-          const chipValue = parseInt(chipValueText)
+        { chipValues.map((chipValue) => {
           const transparent = !selectedChips.includes(chipValue);
           return (
             <PokerChip

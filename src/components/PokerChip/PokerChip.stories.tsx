@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
-import PokerChip, { chipColours } from './PokerChip';
+import PokerChip, { chipValues } from './PokerChip';
 
 export default {
   title: 'PokerChip',
@@ -9,10 +9,10 @@ export default {
 
 export const colours = () => (
   <Fragment>
-    { Object.keys(chipColours).map((chipValue) => {
+    { chipValues.map((chipValue) => {
       return (
         <PokerChip
-          chipValue={parseInt(chipValue) as any}
+          chipValue={chipValue as any}
           onClick={action('clicked')}
         />
       );
