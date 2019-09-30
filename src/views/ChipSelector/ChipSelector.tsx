@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 import { RouteComponentProps, navigate } from '@reach/router';
-import styled from 'styled-components';
 import PokerChip, { chipValues } from '../../components/PokerChip/PokerChip';
 import Button from '../../components/Button/Button';
 import { H1, H2 } from '../../components/Headings/Headings';
-
-const ChipSection = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-  grid-gap: 2rem;
-  margin: 0 0 2rem;
-`;
+import PokerChipSection from '../../components/PokerChipSection/PokerChipSection';
 
 const ChipSelector = (props: RouteComponentProps) => {
 
@@ -51,7 +44,7 @@ const ChipSelector = (props: RouteComponentProps) => {
     <section>
       <H1>Select chip denominations to play with</H1>
       <H2>{selectedChips.length} chips selected</H2>
-      <ChipSection>
+      <PokerChipSection>
         { chipValues.map((chipValue) => {
           const transparent = !selectedChips.includes(chipValue);
           return (
@@ -63,7 +56,7 @@ const ChipSelector = (props: RouteComponentProps) => {
             />
           )
         }) }
-      </ChipSection>
+      </PokerChipSection>
       <Button
         disabled={selectedChips.length === 0}
         loading={loading}
