@@ -54,7 +54,7 @@ const ChipSelector = (props: RouteComponentProps) => {
               transparent={transparent}
               onClick={(args: any) => toggleSelectedChip(args.chipValue)}
             />
-          )
+          );
         }) }
       </PokerChipSection>
       <Button
