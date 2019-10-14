@@ -4,9 +4,6 @@ import { Router } from '@reach/router';
 import styled from 'styled-components';
 import 'normalize.css';
 import GlobalStyles from './GlobalStyles';
-import Welcome from './views/Welcome/Welcome';
-import Game from './views/Game/Game';
-import ChipSelector from './views/ChipSelector/ChipSelector';
 import * as serviceWorker from './serviceWorker';
 
 const Container = styled.main`
@@ -24,9 +21,6 @@ ReactDOM.render(
     <GlobalStyles />
     <Container>
       <Router>
-        <Welcome path="/" />
-        <ChipSelector path="/setup" />
-        <Game path="/game/:id" />
       </Router>
     </Container>
   </Fragment>,
