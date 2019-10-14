@@ -1,32 +1,48 @@
 import React, { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
-import Button from './Button';
+import { boolean, select } from '@storybook/addon-knobs';
+import { Button, ButtonTheme } from './Button';
 
 export default {
   title: 'Button',
   component: Button,
 };
 
+export const basic = () => {
+  const disabled = boolean('Disabled', false);
+  const loading = boolean('Loading', false);
+  const theme = select(
+    'Theme',
+    {
+      Primary: ButtonTheme.PRIMARY,
+      Delete: ButtonTheme.DELETE,
+    },
+    ButtonTheme.PRIMARY,
+  );
+
+  return (
+    <Button
+      theme={theme}
+      disabled={disabled}
+      loading={loading}
+      onClick={action('clicked')}
+    >
+      Button
+    </Button>
+  );
+}
 
 export const colours = () => (
   <Fragment>
-    <Button onClick={action('clicked')}>primary</Button>
     <Button
-      theme="delete"
-      onClick={action('clicked')}
+      theme={ButtonTheme.PRIMARY}
+    >
+      primary
+    </Button>
+    <Button
+      theme={ButtonTheme.DELETE}
     >
       delete
     </Button>
   </Fragment>
 );
-
-export const disabled = () => (
-  <Fragment>
-    <Button onClick={action('clicked')}>not disabled</Button>
-    <Button onClick={action('clicked')} disabled>disabled</Button>
-  </Fragment>
-);
-
-export const loading = () => (
-  <Button onClick={action('clicked')} loading>loading</Button>
-)
