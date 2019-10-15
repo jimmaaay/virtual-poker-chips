@@ -61,7 +61,7 @@ export const Button = (props: PropsWithChildren<ButtonProps>) => {
   } = props;
 
   const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
-    onClick && onClick(e);
+    onClick != null && !loading && onClick(e);
   };
 
   return (
@@ -72,8 +72,8 @@ export const Button = (props: PropsWithChildren<ButtonProps>) => {
       onClick={onClickHandler}
       { ...otherProps }
     >
-      <span className="Button--text">{ props.children }</span>
-      { loading && <div className="Button--loader" /> }
+      <span className="Button-text">{ props.children }</span>
+      { loading && <div className="Button-loader" data-testid="Button-loader" /> }
     </StyledButton>
   );
 };

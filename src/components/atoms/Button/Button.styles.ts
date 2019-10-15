@@ -36,11 +36,11 @@ const baseStyles = (props: ButtonProps) => css`
     cursor: default;
   }
 
-  .Button--text {
+  .Button-text {
     opacity: ${props.loading ? 0 : 1};
   }
 
-  .Button--loader {
+  .Button-loader {
     --diameter: 3rem;
     width: var(--diameter);
     height: var(--diameter);
