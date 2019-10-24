@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { PokerChip, PokerChipValues } from '../../atoms/PokerChip/PokerChip';
 import { styles } from './PokerChipSelector.styles';
@@ -8,6 +8,16 @@ const StyledPokerChipSelector = styled.div`
 `;
 
 export interface PokerChipSelectorProps {
+
+  /**
+   * The selected poker chips
+   */
+  selected: PokerChipValues[];
+
+  /**
+   * A function called when the selected poker chips change
+   */
+  onSelected: (selected: PokerChipValues[]) => void;
 
   /**
    * The class to add to the component
@@ -22,8 +32,7 @@ export interface PokerChipSelectorProps {
 
 
 export const PokerChipSelector = (props: PokerChipSelectorProps) => {
-  const [selected, setSelected] = useState<number[]>([]);
-
+  const { selected, onSelected } = props;
   const values = Object.entries(PokerChipValues)
     .filter(([key]) => {
       return /^[A-Z_]+$/.test(key);
@@ -46,8 +55,9 @@ export const PokerChipSelector = (props: PokerChipSelectorProps) => {
                 newSelected.splice(newSelected.indexOf(chipValue), 1);
               }
 
-              setSelected(newSelected);
+              onSelected(newSelected);
             }}
+            data-testid={`PokerChip-${chipValue}`}
           />
         );
       })}

@@ -1,5 +1,6 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+import { PokerChipValues } from '../../atoms/PokerChip/PokerChip';
 import { PokerChipSelector } from './PokerChipSelector';
 
 export default {
@@ -8,7 +9,12 @@ export default {
 };
 
 export const basic = () => {
+  const [selected, setSelected] = useState<PokerChipValues[]>([]);
+
   return (
-    <PokerChipSelector />
+    <PokerChipSelector
+      selected={selected}
+      onSelected={(newSelected) => setSelected(newSelected)}
+    />
   );
 }
