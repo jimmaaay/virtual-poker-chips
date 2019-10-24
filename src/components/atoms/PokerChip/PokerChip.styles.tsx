@@ -58,10 +58,10 @@ const baseStyles = (props: PokerChipProps) => css`
 
 
 /**
- * Base styles for the component
+ * Unselected styles for the component
  *
  * @param {PokerChipProps} props The PokerChip properties object
- * @returns The base styles
+ * @returns The unselected styles
  */
 const unselectedStyles = (props: PokerChipProps) => {
   switch (props.unselected) {
