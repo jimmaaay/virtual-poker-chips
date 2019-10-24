@@ -1,7 +1,12 @@
 
-import React, { useState } from 'react';
+import React from 'react';
+import { Store, State } from '@sambego/storybook-state';
 import { PokerChipValues } from '../../atoms/PokerChip/PokerChip';
 import { PokerChipSelector } from './PokerChipSelector';
+
+const store = new Store({
+  selected: [] as PokerChipValues[],
+});
 
 export default {
   title: 'PokerChipSelector',
@@ -9,12 +14,12 @@ export default {
 };
 
 export const basic = () => {
-  const [selected, setSelected] = useState<PokerChipValues[]>([]);
-
   return (
-    <PokerChipSelector
-      selected={selected}
-      onSelected={(newSelected) => setSelected(newSelected)}
-    />
+    <State store={store}>
+      <PokerChipSelector
+        selected={store.get('selected')}
+        onSelected={(newSelected) => store.set({ selected: newSelected })}
+      />
+    </State>
   );
 }
