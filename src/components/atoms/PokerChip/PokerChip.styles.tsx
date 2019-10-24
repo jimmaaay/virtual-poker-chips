@@ -12,16 +12,9 @@ import { PokerChipProps } from './PokerChip';
  * @returns The base styles
  */
 const baseStyles = (props: PokerChipProps) => css`
-  --chipColour: ${
-    props.unselected
-      ? darken(0.5, theme.chipColours[props.chipValue])
-      : theme.chipColours[props.chipValue]
-  };
-  --textColour: ${
-    props.unselected
-      ? darken(0.5, theme.chipColours[props.chipValue])
-      : theme.chipColours[props.chipValue]
-  };
+  --chipColour: ${theme.chipColours[props.chipValue]};
+  --textColour: ${theme.chipColours[props.chipValue]};
+
   font-size: 2rem;
   font-family: inherit;
   width: 8rem;
@@ -33,6 +26,7 @@ const baseStyles = (props: PokerChipProps) => css`
   align-items: center;
   position: relative;
   cursor: pointer;
+  background: transparent;
 
   &[disabled] {
     cursor: default;
@@ -50,6 +44,11 @@ const baseStyles = (props: PokerChipProps) => css`
     left: 0;
   }
 
+  .PokerChip-svgInner {
+    stroke: var(--chipStrokeColour);
+    stroke-width: 2px;
+  }
+
   .PokerChip-text {
     position: relative;
     z-index: 1;
@@ -57,6 +56,35 @@ const baseStyles = (props: PokerChipProps) => css`
   }
 `;
 
+
+/**
+ * Base styles for the component
+ *
+ * @param {PokerChipProps} props The PokerChip properties object
+ * @returns The base styles
+ */
+const unselectedStyles = (props: PokerChipProps) => {
+  switch (props.unselected) {
+    case true:
+      return css`
+        --chipColour: transparent;
+        --chipStrokeColour: #fff;
+        --chipColourInner: transparent;
+        --textColour: #fff;
+
+        .PokerChip-svg {
+          stroke: #fff;
+        }
+      `;
+
+    case false:
+    default:
+      return css`
+        --chipStrokeColour: #000;
+        --chipColourInner: #fff;
+      `;
+  }
+}
 
 
 /**
@@ -66,4 +94,5 @@ const baseStyles = (props: PokerChipProps) => css`
  */
 export const styles = (props: PokerChipProps) => css`
   ${baseStyles(props)}
+  ${unselectedStyles(props)}
 `;
