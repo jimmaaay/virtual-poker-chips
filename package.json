@@ -50,6 +50,7 @@
     "@types/storybook__react": "^4.0.2",
     "@types/styled-components": "^4.1.19",
     "awesome-typescript-loader": "^5.2.1",
+    "hygen": "^5.0.1",
     "react-docgen-typescript-loader": "^3.2.1",
     "ts-jest": "^24.1.0"
   }
