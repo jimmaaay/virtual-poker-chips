@@ -10,17 +10,15 @@ const OuterDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #333;
-  color: #fff;
   
-  > * {
+  > div {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
   }
 
-  > * > * {
+  > div > * {
     margin: 0 1rem;
   }
 `;

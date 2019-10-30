@@ -25,6 +25,11 @@ export interface HeadingProps {
    * 3. H3
    */
   size: HeadingSize;
+
+  /**
+   * The classname
+   */
+  className?: string;
 }
 
 

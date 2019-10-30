@@ -13,6 +13,9 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-size: 1.6rem;
+    background: #333;
+    color: #fff;
+    margin: 0;
   }
 
   p {
