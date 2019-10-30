@@ -17,4 +17,18 @@ describe('Input component', () => {
     expect(container.firstChild).toBeDefined();
   });
 
+  test('should show an error message when error is a string', () => {
+    const error = 'Ahh something went wrong!';
+    const { queryByText } = render(
+      <Input
+        value=""
+        id="example"
+        type="text"
+        label="Example"
+        error={error}
+      />
+    );
+    expect(queryByText(error)).not.toBeNull();
+  });
+
 });

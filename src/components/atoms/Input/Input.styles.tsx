@@ -22,26 +22,34 @@ const openInput = css`
  */
 const baseStyles = (props: InputPropsWithIsOpen) => css`
   position: relative;
-  margin-top: 1.5rem;
+  padding: 1.5rem 0 3rem;
+
+
+  .Input-container {
+    position: relative;
+  }
 
   .Input-input {
     padding: 1rem;
     line-height: 2rem;
     border: none;
     font: inherit;
-    background: none;
-    border-bottom: 2px solid #fff;
+    background: #434B49;
     color: #fff;
+    border-radius: 1rem;
+    border: 2px solid ${props.error ? theme.colours.red : 'transparent'};
 
     &:focus {
       outline: none;
-      border-bottom: 2px solid ${theme.colours.orange};
+      border-color: ${theme.colours.orange};
 
       & + .Input-label {
         ${openInput}
       }
 
     }
+
+
   }
 
   .Input-label {
@@ -53,9 +61,19 @@ const baseStyles = (props: InputPropsWithIsOpen) => css`
     transition: transform 0.3s ease-in-out;
     pointer-events: none;
     transform-origin: left center;
-    color: #fff;
+    color: ${props.error ? theme.colours.red : '#fff'};
 
     ${props.isOpen ? openInput : ''};
+  }
+
+  .Input-error {
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: tomato;
+    margin: 0;
+    top: 6.5rem;
+    font-size: 1.4rem;
   }
 `;
 

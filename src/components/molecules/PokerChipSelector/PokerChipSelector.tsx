@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import { PokerChip, PokerChipValues } from '../../atoms/PokerChip/PokerChip';
 import { styles } from './PokerChipSelector.styles';
 
-const StyledPokerChipSelector = styled.div`
-  ${styles}
-`;
-
 export interface PokerChipSelectorProps {
 
   /**
@@ -30,6 +26,12 @@ export interface PokerChipSelectorProps {
   'data-testid'?: string;
 }
 
+export type PokerChipSelectorStylesProps = Omit<PokerChipSelectorProps, 'onSelected'>;
+
+const StyledPokerChipSelector = styled.div<PokerChipSelectorStylesProps>`
+  ${styles}
+`;
+
 
 export const PokerChipSelector = (props: PokerChipSelectorProps) => {
   const { selected, onSelected } = props;
@@ -40,7 +42,7 @@ export const PokerChipSelector = (props: PokerChipSelectorProps) => {
     .map(([key, value]) => value);
 
   return (
-    <StyledPokerChipSelector {...props}>
+    <StyledPokerChipSelector selected={selected}>
       { values.map((chipValue) => {
         return (
           <PokerChip
