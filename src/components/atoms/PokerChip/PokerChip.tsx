@@ -16,6 +16,16 @@ export enum PokerChipValues {
   ONE_THOUSAND = 1000,
 };
 
+export const allValues = [
+  PokerChipValues.ONE,
+  PokerChipValues.FIVE,
+  PokerChipValues.TEN,
+  PokerChipValues.TWENTY_FIVE,
+  PokerChipValues.ONE_HUNDRED,
+  PokerChipValues.FIVE_HUNDRED,
+  PokerChipValues.ONE_THOUSAND,
+];
+
 export interface PokerChipProps {
   /**
    * The value that the chip represents

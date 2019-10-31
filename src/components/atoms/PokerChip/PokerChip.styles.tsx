@@ -67,10 +67,11 @@ const unselectedStyles = (props: PokerChipProps) => {
   switch (props.unselected) {
     case true:
       return css`
-        --chipColour: transparent;
+        --chipColour: transparent !important;
         --chipStrokeColour: #fff;
         --chipColourInner: transparent;
-        --textColour: #fff;
+        --textColour: #fff !important;
+        opacity: 1 !important;
 
         .PokerChip-svg {
           stroke: #fff;

@@ -32,7 +32,7 @@ export const Layout = (props: LayoutProps) => {
     <StyledLayout {...props}>
       <header className="header">
         <div className="wrapper">
-          <Heading size={HeadingSize.H2} className="title">Virtual poker chips</Heading>
+          <Heading size={HeadingSize.H3} className="title">Virtual poker chips</Heading>
         </div>
       </header>
       <main className="wrapper main">
