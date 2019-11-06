@@ -2,13 +2,20 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node index.js"
+    "dev": "concurrently \"yarn run dev:typescript-watch\" \"yarn run dev:node-watch\"",
+    "dev:typescript-watch": "./node_modules/.bin/tsc -w",
+    "dev:node-watch": "nodemon dist/index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.12.6",
+    "concurrently": "^5.0.0",
+    "nodemon": "^1.19.4",
+    "typescript": "^3.7.2"
+  }
 }
