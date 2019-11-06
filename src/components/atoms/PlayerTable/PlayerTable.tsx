@@ -50,7 +50,7 @@ const StyledTd = styled.td`
   font-size: 1.4rem;
 `;
 
-const PlayerTable = (props: PlayerTableProps) => (
+export const PlayerTable = (props: PlayerTableProps) => (
   <StyledTable>
     <thead>
       <tr>
@@ -77,5 +77,3 @@ const PlayerTable = (props: PlayerTableProps) => (
     </tbody>
   </StyledTable>
 );
-
-export default PlayerTable;
